@@ -16,14 +16,14 @@ const apikey='dddaebdb79f9b6d3f1c14f3f7ac2c013';
 const res= await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${City_Name}&appid=${apikey}`)
 const data= await res.json();
 
-temp_area.innerHTML=`${kelvinToCelsius(data.main.temp).toFixed(2)}°C`;
+temp_area.innerHTML=`${kelvinToCelsius(data.main.temp).toFixed(0)}`;
 
-loc.innerHTML=`<span id="city">${data.name}</span> , <span id="country" >${data.sys.country}</span>`
+loc.innerHTML=`<header>${data.name}, <span id="country" >${data.sys.country}</header>`
 det.innerHTML=`
 
- <p>It feels like: ${kelvinToCelsius(data.main.feels_like).toFixed(2)}°C</p>
+ <p>IT FEELS LIKE: ${kelvinToCelsius(data.main.feels_like).toFixed(2)}°C</p>
   <p>WIND: ${data.wind.speed} m/s </p> 
-  <p>humidity: ${data.main.humidity}% </p>
+  <p>hUMIDITY: ${data.main.humidity}% </p>
 
 `
 }
@@ -41,3 +41,4 @@ weather(search.value);
     }
 })
 
+weather("algeria");
